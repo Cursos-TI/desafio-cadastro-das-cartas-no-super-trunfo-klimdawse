@@ -2,44 +2,55 @@
 
 int main() {
 
-    char letra_do_estado;
-    char codigo[4];
+    /* declaração das variáveis a serem utilizadas */
+
+    char estado;
+    char cod_cidade[4];
     char cidade[50];
     int populacao;
     float area;
     float pib;
     int pontos_turisticos;
 
-    printf("Cadastro de Cartas SuperTrunfo\n");
-    
+    /* prompt de entrada dos dados da carta, com indicador do que é para entrar e scanf ou fgets para capturar as informações e armazenar em variáveis */
+
+    printf("Cadastro de Cartas SuperTrunfo\n\n");
+
     printf("Digite a letra que representa o estado: ");
-    scanf("%c", &letra_do_estado);
+    scanf(" %c", &estado); // espaço acrescentado antes do %c como ensinado em aula para evitar problemas com quebras de linha
 
     printf("Digite o código da cidade: ");
-    scanf("%s", &codigo);
+    scanf("%s", cod_cidade);
+
+    getchar(); // limpa a quebra de linha do scanf anterior
 
     printf("Digite o nome da cidade: ");
-    scanf("%s", &cidade);
+    fgets(cidade, 50, stdin); // captura a variável com espaços, o que scanf não faz
 
     printf("Digite a população da cidade: ");
     scanf("%d", &populacao);
-    
+
     printf("Digite a área da cidade: ");
     scanf("%f", &area);
-    
-    printf("Digite o pib da cidade: ");
+
+    printf("Digite o PIB da cidade: ");
     scanf("%f", &pib);
 
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
+    /* saída dos dados da carta, mostrando mensagem de cadastro com sucesso e as informações inseridas pelo usuário */
+
+    printf("\n\nCarta cadastrada com sucesso. Informações da nova carta abaixo.\n");
+
+    printf("\nEstado: %c", estado);
+
+    printf("\nCódigo da cidade: %s", cod_cidade);
+
+    printf("\nNome da cidade: %s", cidade);
+
+    printf("População: %d", populacao);
+
+    printf("\nÁrea: %.2f km²", area);
+
+    printf("\nPIB: %.2f bilhões de reais", pib);
 
     return 0;
 }
